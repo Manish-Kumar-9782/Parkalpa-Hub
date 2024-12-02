@@ -1,0 +1,79 @@
+<div style="min-height:120px;"
+     class="me-4 collapse collapse-horizontal col-3 "
+     id="add-task-bar">
+
+    <div class="card p-3 shadow">
+        <div class="card-title ">
+            <h3 class="mb-2">Add a New Task</h3>
+        </div>
+
+        <form action="#"
+              id="add-new-task">
+            <div class="mb-3"
+                 data-input-name="title">
+                <label for="title"
+                       class="form-label">Task Title</label>
+                <input type="text"
+                       class="form-control"
+                       name="title"
+                       id="title">
+                <span class="form-text"></span>
+
+            </div>
+
+            <div class="mb-3"
+                 data-input-name="description">
+                <label for="description"
+                       class="form-label">Description</label>
+                <textarea name="description"
+                          class="form-control"
+                          id="description"></textarea>
+                <span class="form-text"></span>
+            </div>
+
+            <div class="mb-3"
+                 data-input-name="priority">
+                <label for="priority"
+                       class="form-label">Priority</label>
+
+                <select name="priority"
+                        id="priority"
+                        class="form-select">
+                    {% for priority in TaskPriority %}
+                    <option value="{{priority.value}}">{{priority.name}}</option>
+                    {% endfor %}
+                </select>
+                <span class="form-text"></span>
+            </div>
+
+            <div class="mb-3"
+                 data-input-name="due_date">
+                <label for="due_date"
+                       class="form-label">Due Date</label>
+                <input type="date"
+                       class="form-control"
+                       name="due_date"
+                       id="due_date">
+                <span class="form-text"></span>
+            </div>
+
+
+            <input type="submit"
+                   value="add task"
+                   class="btn btn-sm btn-success">
+
+        </form>
+
+        <script>
+            const addTaskForm = document.forms["add-new-task"]
+
+            if (addTaskForm == null || addTaskForm == undefined) {
+                console.warn("No form found by named add-new-task")
+            }
+
+            addTaskForm.addEventListener("submit", handleAddTaskFormSubmit)
+
+        </script>
+    </div>
+
+</div>

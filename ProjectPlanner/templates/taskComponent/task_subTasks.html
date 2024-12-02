@@ -1,0 +1,17 @@
+<ul class="list-group ms-4">
+    {% for task in subTasks %}
+    <li class="list-group-item">
+        <div class="item-container">
+            <input class="form-check-input me-1"
+                   type="checkbox"
+                   {% if task.isCompleted %}checked{% endif %}
+                   id="firstCheckbox"
+                   data-id="{{task.id}}"
+                   data-action-type="task-item-check">
+            <label class="form-check-label"
+                   for="firstCheckbox">{{task.title}}</label>
+        </div>
+        <p class="form-text mb-0">{{task.description}}</p>
+    </li>
+    {% endfor %}
+</ul>

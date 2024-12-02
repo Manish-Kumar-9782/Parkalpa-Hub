@@ -1,0 +1,14 @@
+<div class="bg-primary-subtle text-primary emphasis px-2 py-1 rounded">
+
+    {% if   task.status == 'in_progress' %}
+    <i class="bi bi-circle-square"></i>
+    {% elif task.status == "completed" %}
+    <i class="bi bi-check-circle"></i>
+    {% elif task.status == "pending" %}
+    <i class="bi bi-exclamation-circle"></i>
+    {% elif task.status == "inactive" %}
+    <i class="bi bi-ban"></i>
+    {% endif %}
+
+    <small>{{task.status}}</small>
+</div>

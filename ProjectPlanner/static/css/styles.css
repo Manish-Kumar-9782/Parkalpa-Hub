@@ -1,0 +1,118 @@
+.logo {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.project-card {
+    /* max-width: 700px; */
+    /* max-height: 400px; */
+}
+
+.info-card {
+    min-width: 120px;
+    flex: 1;
+    max-width: 200px;
+    text-align: center;
+
+
+    .info-title {
+        box-shadow: 0px 1px 5px 1px gray;
+        display: block;
+        margin: auto;
+        padding-inline: 5px;
+        padding-block: 2px;
+
+    }
+
+    .info-value {
+        display: block;
+        padding-inline: 5px;
+        padding-block: 2px;
+        margin-top: 4px;
+        padding: 1px;
+    }
+
+}
+
+.project-badge-card {
+    top: 0%;
+    left: calc(100% + 10%);
+    padding: 6px;
+}
+
+.project-status {
+    position: absolute;
+    border: 1px solid var(--bs-border-secondary);
+    padding: 6px 10px;
+    right: 0%;
+    top: 1%;
+}
+
+.status-badge-primary {
+    background-color: var(--bs-primary-bg-subtle);
+    color: var(--bs-primary-text-emphasis);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.project-status-badge {
+    padding: 1px 8px;
+}
+
+.progress-bar-annotation {
+    position: relative;
+}
+
+.progress-bar-annotation::before {
+    display: block;
+    position: absolute;
+    content: "10";
+    top: -10px;
+
+    left: 10%;
+    height: auto;
+    width: fit-content;
+    background-color: red;
+
+}
+
+.flex-justify-right {
+    margin-left: auto;
+}
+
+
+.list-group-item .item-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .item-content {
+        flex: 1;
+    }
+}
+
+.list-group-item {
+    margin-block: 10px;
+}
+
+.list-group-item+.list-group-item,
+.list-group-item:first-child {
+    border-top-width: 1px;
+    border-radius: 6px;
+}
+
+/* a hr-badge element ::after
+an hr-badge element will contain above element and one below element.
+*/
+
+.hr-badge hr {
+    margin-block: 3px;
+}

@@ -1,0 +1,54 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container">
+    {% csrf_token %}
+    <ul class="list-group">
+        {% for task in project.get_tasks %}
+
+        {% if not task.is_sub_task %}
+        <li class="list-group-item">
+            <div class="item-container">
+                <div class="item-check">
+                    <input type="checkbox"
+                           {% if task.isCompleted %}checked{% endif %}
+                           class="form-check-input me-1"
+                           data-id="{{task.id}}"
+                           data-action-type="task-item-check">
+                </div>
+
+                <div class="item-content">
+
+                    <div class="item-header d-flex column-gap-4 justify-content-between">
+                        <h6>{{task.title}}</h6>
+                        <div class="d-flex column-gap-1 align-items-center">
+                            {% include "taskComponent/task_priority.html" with task=task %}
+                            {% include "taskComponent/task_status.html" with task=task %}
+                        </div>
+                    </div>
+
+                    <p class="item-description">{{task.description}}</p>
+
+                    {% if task.has_sub_tasks %}
+
+                    {% include "taskComponent/task_subTasks.html" with subTasks=task.sub_tasks.all %}
+                    {% endif %}
+
+                    <hr class="my-1">
+                    {% include "taskComponent/task_footer.html" with task=task %}
+                </div>
+            </div>
+
+        </li>
+        {% endif %}
+
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+    loadUpdateCheckHandler()
+</script>
+
+{% endblock content %}
